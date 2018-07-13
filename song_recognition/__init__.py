@@ -2,7 +2,7 @@ import pathlib
 from pathlib import Path
 from song_recognition import AudioToDigital
 from song_recognition import PeakToFingerprint
-from song_recognition import songStoreFingerprint
+from song_recognition import StoreFingerprint
 from song_recognition import MatchFingerprint
 from song_recognition import DigitalToFingerprint
 
