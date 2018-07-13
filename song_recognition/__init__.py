@@ -1,10 +1,10 @@
 import pathlib
 from pathlib import Path
-import AudioToDigital
-import PeakToFingerprint
-import StoreFingerprint
-import MatchFingerprint
-import DigitalToFingerprint
+from song_recognition import AudioToDigital
+from song_recognition import PeakToFingerprint
+from song_recognition import songStoreFingerprint
+from song_recognition import MatchFingerprint
+from song_recognition import DigitalToFingerprint
 
 def store(localSongPath, songName):
     localSongPath = Path(localSongPath)
