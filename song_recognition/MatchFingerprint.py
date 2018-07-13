@@ -1,9 +1,10 @@
 import pickle
 import numpy as np
 import collections
+import pathlib
 
-    
-with open("dictionary.pkl", mode="rb") as opened_file:
+my_path = pathlib.Path(__file__).parent
+with open(my_path/"dictionary.pkl", mode="rb") as opened_file:
     my_loaded_dictionary = pickle.load(opened_file)
 
 
@@ -31,8 +32,6 @@ def fingerprintToCounter(fingerprints):
     Returns:
         counter : a counter object with (name, offset) -> count
     """
-    with open("dictionary.pkl", mode="rb") as opened_file:
-        my_loaded_dictionary = pickle.load(opened_file)
     counter =  collections.Counter()
     for element in fingerprints:
         incrementCounter(*element, my_loaded_dictionary, counter)

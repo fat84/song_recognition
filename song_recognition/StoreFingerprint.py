@@ -1,8 +1,10 @@
 import pickle
 import numpy as np
+import pathlib
 
 
-    
+my_path = pathlib.Path(__file__).parent
+
 
 
 def addFingerprint(fn, fni, dT, t, songName, dictionary):
@@ -35,9 +37,9 @@ def addFingerprints(fingerprints, songName):
     AUTO UPDATES AND OPENS DICTIONARY
 
     """
-    with open("dictionary.pkl", mode="rb") as opened_file:
+    with open(my_path/"dictionary.pkl", mode="rb") as opened_file:
         my_loaded_dictionary = pickle.load(opened_file)
     for i in fingerprints:
         addFingerprint(*i, songName, my_loaded_dictionary)
-    with open("dictionary.pkl", mode="wb") as opened_file:
+    with open(my_path/"dictionary.pkl", mode="wb") as opened_file:
         pickle.dump(my_loaded_dictionary, opened_file)
