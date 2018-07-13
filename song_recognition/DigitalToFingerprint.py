@@ -81,12 +81,12 @@ def find_ninety_C_k(spec_gram):
     ninety_C_k_value
         The 90th percentile C_k value in the flattened spectrogram, for filtering purposes.
     """
-    spec_gram = spec_gram[spec_gram != 0]
+    spec_gram[spec_gram == 0] = 1e-10
     specgram_flattened = spec_gram.flatten()
     specgram_sorted = np.sort(np.log(np.abs(specgram_flattened)))
     specgram_length = len(specgram_sorted)
    
-    ninety_index = int(0.9 * specgram_length)
+    ninety_index = int(0.8 * specgram_length)
    
     ninety_C_k = specgram_sorted[ninety_index]
     
