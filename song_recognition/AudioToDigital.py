@@ -14,8 +14,7 @@ def mp3_to_digital(local_song_path, song_name):
     
     samples, fs = librosa.load(local_song_path, sr=44100, mono=True)
     times = np.arange(len(samples)) * 44100
-    if np.max(np.abs(samples)) == 1:
-        samples = samples*(2**15)
+    samples = samples*(2**15)
     
     return (song_name, samples, times)
 
